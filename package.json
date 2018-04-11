@@ -8,7 +8,8 @@
     "start": "echo teste",
     "prestart": "echo prestart",
     "poststart": "echo poststart",
-    "postinstall": "cp -r node_modules/bootstrap/dist/ src/components/bootstrap && cp -r node_modules/font-awesome/css src/components/font-awesome/ && cp -r node_modules/font-awesome/fonts src/components/font-awesome/"
+    "postinstall": "cp -r node_modules/bootstrap/dist/ src/components/bootstrap && cp -r node_modules/font-awesome/css src/components/font-awesome/ && cp -r node_modules/font-awesome/fonts src/components/font-awesome/",
+    "nodesass": "node-sass"
   },
   "repository": {
     "type": "git",
@@ -22,5 +23,8 @@
   "dependencies": {
     "bootstrap": "^4.0.0",
     "font-awesome": "^4.7.0"
+  },
+  "devDependencies": {
+    "node-sass": "^4.8.3"
   }
 }
