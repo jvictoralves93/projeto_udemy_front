@@ -1,4 +1,5 @@
-$h = 300px;
 .header-animado{
+    $h: 400px;
+    background-color: $main-color;
     height: $h;
 }
