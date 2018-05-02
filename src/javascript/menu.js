@@ -11,16 +11,17 @@
         console.log(this);
         console.log(e.target);
         
-        if(e.target === html && menuOpened)
+        if(e.target === html && menuOpened){
             closeMenu();
-    });
-        
+        }
+    })
+    
     btn.addEventListener('click', toggleMenu);
     
     function toggleMenu(e){
         if(menuOpened){
             closeMenu();
-        }else{
+        } else {
             openMenu();
         }
     }
@@ -28,7 +29,7 @@
     function closeMenu(){
         menuOpened = false;
         html.classList.remove(classMenu);
-        btn.blur;
+        btn.blur();
         menu.setAttribute('aria-expanded', false);
         btn.setAttribute('aria-expanded', false);
     }
@@ -40,3 +41,6 @@
         btn.setAttribute('aria-expanded', true);
     }
 }())
+
+
+

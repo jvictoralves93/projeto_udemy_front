@@ -1,8 +1,22 @@
 .rodape{
-    background: lighten($main-color, 30);
-    color: white;
-    padding: 1em 0;
-    display: -webkit-box;
+    
+    svg{
+        width: 22px;
+        height: 22px;
+    }
+    
+    .color-icon{
+        fill: darken($main-color, 10);
+        transition: fill .5s;
+        
+        &:hover{
+            fill: darken($main-color, 30);
+        }
+    }
+    
+    background: lighten($main-color, 30);    
+    color: darken($main-color, 10);
+    padding: 1em 0;    
     ul{
         overflow: auto;
         padding: 0;
@@ -14,11 +28,16 @@
             list-style: none;
             padding: 0;
         }
+
         li a{
             font-size: 1.5em;
-            color: white;
+            color: inherit;
             display: block;
             text-align: right;
         }
-    }
+        
+        img{
+            height: 22px;
+        }
+    }    
 }

@@ -1,59 +1,46 @@
 .header-animado{
-    $h: 300px;
+    $h: 300px; 
     $largura_cenario: 2400px;
     
     
     background-color: $main-color;
-    padding-top: 95px;
-    margin: 0;
-    padding: 0;
+    padding-top: 96px;
+    margin-bottom: 32px;
+    padding-bottom: 0;
+    
+    
     
     .header-animado__title{
-        color: #00150a;
+        font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+        color: #00151a;
         font-size: 38px;
         font-weight: bold;
     }
     .header-animado__subtitle{
+        font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
         color: white;
-        font-size: 34x;
+        font-size: 34px;
         font-weight: 300;
         line-height: 1.5;
+        margin-bottom: 2em;
     }
+    
     &__ilustra{
         background-image: url(../imagens/cenario_all_960.png);
         height: $h/2;
         background-size: auto 100%;
-        background-position: 50% top;
+        background-position: center top;
         overflow: hidden;
         
         &>div{
-        display: none;
-    }
-        
-        @media screen and (min-width: 480px){
-        background-image: url(../imagens/cenario_all_1530.png)
-    }
-    
-    @media screen and (min-width: 960px){
-        background-image: url(../imagens/cenario_bg.png);
-        height: $h; 
-        position: relative;
-        
-        &>div{
-            display: block;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            
-            width: $largura_cenario * 2;
+            display: none;
         }
         
         @mixin anima($imagem, $tipo_anima: '90s linear infinite reverse'){
             background-image: url(../imagens/#{$imagem});
-            animation: #{$tipo_anima};
-        }
-        
+            animation: anima_cenario #{$tipo_anima} ;
+        } 
+
         @keyframes anima_cenario{
             from{
                 transform: translateX(-50%) translateZ(0);
@@ -63,51 +50,50 @@
             }
         }
         
-//        $items: (
-//            nuvens: null,
-//            casas: '30s linear infinite reverse',
-//            rua: '30s linear infinite reverse',
-//            carrosCima: '15s linear infinite reverse',
-//            carrosBaixo: '15s linear infinite'
-//        );
-//        
-//        @each $key, $valor in $items{            
-//            @if $valor{
-//                .#{$key}{
-//                    @include anima('cenario_#{$key}.png', $valor);
-//                }
-//            }@else{
-//                .#{$key}{
-//                    @include anima('cenario_#{$key}.png');
-//                }
-//            }
-//            
-//            
-//        }
-//      
-        .nuvens{
-            @include anima('cenario_nuvens.png', 'anima_cenario 90s linear infinite reverse');
+        @media screen and (min-width: 480px){
+            background-image: url(../imagens/cenario_all_1530.png);
         }
         
-        .casas{
-            @include anima('cenario_casas.png', 'anima_cenario 30s linear infinite reverse');
-        }
+        @media screen and (min-width: 960px){
+            background-image: url(../imagens/cenario_bg.png);
+            height: $h;
+            position: relative;
+            
+            &>div{
+                display: block;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left:0;
+                
+                width: $largura_cenario * 2;
+            }
+            
+            
+            $items: (
+                nuvens: null,
+                casas: '30s linear infinite reverse',
+                rua: '30s linear infinite reverse',
+                carrosCima: '15s linear infinite reverse',
+                carrosBaixo: '15s linear infinite'
+            );
+                
+            @each $key, $valor in $items{
+                
+                @if $valor{
+                    .#{$key} {
+                        @include anima('cenario_#{$key}.png', $valor);
+                    }
+                } @else {
+                    .#{$key} {
+                        @include anima('cenario_#{$key}.png');
+                    }
+                }
+                
+            }
         
-        .rua{
-            @include anima('cenario_rua.png', 'anima_cenario 30s linear infinite reverse');
+            
         }
-        
-        .carrosCima{
-            @include anima('cenario_carrosCima.png', 'anima_cenario 15s linear infinite reverse');
-        }
-        
-        .carrosBaixo{
-            @include anima('cenario_carrosBaixo.png', 'anima_cenario 15s linear infinite');
-        }
-        
-          
     }
-    }
-    
-    
+
 }
